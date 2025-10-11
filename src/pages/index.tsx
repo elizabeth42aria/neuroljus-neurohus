@@ -160,6 +160,7 @@ export default function Home() {
             </div>
           </section>
 
+
           <footer className="footer" role="contentinfo">
             {isSV ? T.footSV : T.footEN}
           </footer>

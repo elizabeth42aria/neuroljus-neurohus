@@ -56,23 +56,39 @@ const T: Record<Lang, Record<string, string>> = {
 
 export default function CareChat() {
   const [lang, setLang] = useState<Lang>("sv");
-  const [engine, setEngine] = useState<"heuristic" | "openai">("heuristic");
-  const [msgs, setMsgs] = useState<Msg[]>([
-    { role: "assistant", content: "Hi! I’m here to help interpret signals. What’s happening right now?" }
-  ]);
+  const [engine, setEngine] = useState<"openai">("openai");
+  const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [notes, setNotes] = useState("");
   const [busy, setBusy] = useState(false);
   const endRef = useRef<HTMLDivElement | null>(null);
 
-  // Detect engine
+  // All responses come from Neuroljus AI
   useEffect(() => {
-    fetch("/api/chat", { method: "HEAD" })
-      .then(r => {
-        const m = r.headers.get("x-nl-engine");
-        if (m === "openai") setEngine("openai");
-      })
-      .catch(() => {});
+    // Initialize with AI greeting if no messages
+    if (msgs.length === 0) {
+      const greeting = async () => {
+        try {
+          const metrics = readRecentMetrics();
+          const r = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ 
+              messages: [{ role: "user", content: "Hello, please introduce yourself and explain how you can help." }], 
+              metrics, 
+              notes: "", 
+              lang 
+            }),
+          });
+          const j = await r.json();
+          setMsgs([{ role: "assistant", content: j.content }]);
+        } catch (error) {
+          console.error('Initial greeting error:', error);
+          // If greeting fails, start with empty chat
+        }
+      };
+      greeting();
+    }
   }, []);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
@@ -103,8 +119,9 @@ export default function CareChat() {
       });
       const j = await r.json();
       setMsgs((m) => [...m, { role: "assistant", content: j.content }]);
-    } catch {
-      setMsgs((m) => [...m, { role: "assistant", content: "Chat temporarily unavailable." }]);
+    } catch (error) {
+      console.error('Chat error:', error);
+      setMsgs((m) => [...m, { role: "assistant", content: "I'm experiencing some technical difficulties. Please try again in a moment." }]);
     } finally {
       setBusy(false);
     }
@@ -119,7 +136,7 @@ export default function CareChat() {
           <div style={{ opacity: 0.8, fontSize: 12 }}>{T[lang].subtitle}</div>
         </div>
         <div style={{ display: "flex", gap: 6 }}>
-          <span style={engineBadge}>{engine === "openai" ? T[lang].engineOpenAI : T[lang].engineHeur}</span>
+          <span style={engineBadge}>Neuroljus AI</span>
           <select value={lang} onChange={(e)=>setLang(e.target.value as Lang)} style={langSel} aria-label="Language">
             <option value="sv">SV</option>
             <option value="en">EN</option>
