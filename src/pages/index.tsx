@@ -93,8 +93,7 @@ export default function Home() {
 
             <nav className="nav" aria-label={isSV ? "Primär" : "Primary"}>
               <a href="/labs/nl-vision">Demo</a>
-              <a href="#vision">Vision&nbsp;AI</a>
-              <a href="#about">{isSV ? "Om" : "About"}</a>
+              <a href="/about">{isSV ? "Om" : "About"}</a>
             </nav>
 
             <div className="langToggle" role="group" aria-label="Language switch">
