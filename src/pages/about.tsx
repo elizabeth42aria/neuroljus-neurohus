@@ -161,24 +161,18 @@ Varje autistisk person är ett unikt universum. Jag hjälper bara vårdgivare at
 
           {/* Elizabeth */}
           <section style={styles.card}>
-            <div style={styles.authorHeader}>
-              <div style={styles.authorIcon}>💙</div>
-              <div>
-                <h2 style={styles.h2}>{t.elizabethTitle}</h2>
-                <p style={styles.role}>{t.elizabethRole}</p>
-              </div>
+            <div>
+              <h2 style={styles.h2}>{t.elizabethTitle}</h2>
+              <p style={styles.role}>{t.elizabethRole}</p>
             </div>
             <p style={styles.bio}>{t.elizabethBio}</p>
           </section>
 
           {/* AI */}
           <section style={styles.card}>
-            <div style={styles.authorHeader}>
-              <div style={styles.authorIcon}>✨</div>
-              <div>
-                <h2 style={styles.h2}>{t.aiTitle}</h2>
-                <p style={styles.role}>{t.aiRole}</p>
-              </div>
+            <div>
+              <h2 style={styles.h2}>{t.aiTitle}</h2>
+              <p style={styles.role}>{t.aiRole}</p>
             </div>
             <p style={styles.bio}>{t.aiBio}</p>
           </section>
@@ -288,15 +282,6 @@ const styles: Record<string, React.CSSProperties> = {
     padding: 24,
     marginBottom: 20,
   },
-  authorHeader: {
-    display: "flex",
-    alignItems: "center",
-    gap: 16,
-    marginBottom: 16,
-  },
-  authorIcon: {
-    fontSize: 48,
-  },
   h2: {
     fontSize: 24,
     margin: "0 0 4px",
@@ -305,7 +290,7 @@ const styles: Record<string, React.CSSProperties> = {
   role: {
     fontSize: 14,
     color: "#a8b8d8",
-    margin: 0,
+    margin: "0 0 16px",
   },
   bio: {
     fontSize: 15,
