@@ -145,12 +145,6 @@ export default function CareChat() {
         </div>
       </div>
 
-      {/* Quick chips */}
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 8 }}>
-        {quick.map((q) => (
-          <button key={q} onClick={() => send(q)} style={chip}>{q}</button>
-        ))}
-      </div>
 
       {/* Thread */}
       <div style={thread} aria-live="polite">
