@@ -15,8 +15,8 @@ import {
   X,
   Globe
 } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { SearchBar } from '@/components/ui/SearchBar'
+import { Button } from '../ui/Button'
+import { SearchBar } from '../ui/SearchBar'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

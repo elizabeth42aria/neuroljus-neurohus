@@ -19,8 +19,8 @@ import {
   Shield,
   Lightbulb
 } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { SearchBar } from '@/components/ui/SearchBar'
+import { Button } from '../components/ui/Button'
+import { SearchBar } from '../components/ui/SearchBar'
 
 export default function HomePage() {
   const router = useRouter()
