@@ -1,13 +1,9 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  experimental: {
-    appDir: true,
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   i18n: {
     locales: ['sv', 'en'],
     defaultLocale: 'sv',
-    localeDetection: true,
+    localeDetection: false,
   },
   images: {
     domains: ['localhost', 'neuroljus.se'],
@@ -26,4 +22,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+module.exports = nextConfig
