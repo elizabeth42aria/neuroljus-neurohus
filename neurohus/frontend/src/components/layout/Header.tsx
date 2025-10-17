@@ -3,18 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { 
-  Heart, 
-  Brain, 
-  Users, 
-  GraduationCap, 
-  Award, 
-  BookOpen, 
-  Search,
-  Menu,
-  X,
-  Globe
-} from 'lucide-react'
 import { Button } from '../ui/Button'
 import { SearchBar } from '../ui/SearchBar'
 
@@ -45,7 +33,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex items-center justify-center w-10 h-10 bg-gradient-primary rounded-lg">
-              <Brain className="w-6 h-6 text-white" />
+              <span className="text-2xl">🧠</span>
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-gradient">
@@ -79,12 +67,12 @@ export function Header() {
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="hidden sm:flex"
             >
-              <Search className="w-4 h-4" />
+              <span className="text-lg">🔍</span>
             </Button>
 
             {/* Language selector */}
             <Button variant="ghost" size="sm">
-              <Globe className="w-4 h-4" />
+              <span className="text-lg">🌍</span>
               <span className="ml-1 hidden sm:inline">SV</span>
             </Button>
 
@@ -96,9 +84,9 @@ export function Header() {
               className="lg:hidden"
             >
               {isMenuOpen ? (
-                <X className="w-5 h-5" />
+                <span className="text-lg">✕</span>
               ) : (
-                <Menu className="w-5 h-5" />
+                <span className="text-lg">☰</span>
               )}
             </Button>
           </div>
