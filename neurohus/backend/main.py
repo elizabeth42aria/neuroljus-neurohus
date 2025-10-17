@@ -40,7 +40,7 @@ async def root():
     """
     return JSONResponse(
         content={
-            "message": "Välkommen till Neuroljus Neurohus! 🏠💛",
+            "message": "Välkommen till Neuroljus Neurohus",
             "description": "Sveriges första digitala hus för empati, kunskap och neurodiversitet",
             "version": "1.0.0",
             "status": "running"
@@ -56,7 +56,7 @@ async def health_check():
     return JSONResponse(
         content={
             "status": "healthy",
-            "message": "Neuroljus Neurohus API är igång och redo att hjälpa! 💪"
+            "message": "Neuroljus Neurohus API är igång och redo att hjälpa"
         },
         headers={"Content-Type": "application/json; charset=utf-8"}
     )

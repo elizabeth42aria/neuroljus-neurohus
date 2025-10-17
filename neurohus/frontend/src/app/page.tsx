@@ -134,7 +134,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/neurohus">
                 <Button size="lg" className="bg-gradient-primary">
-                  🏠 Gå till Neurohus Dashboard
+                  Gå till Neurohus Dashboard
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
