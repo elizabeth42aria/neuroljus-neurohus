@@ -1,15 +1,4 @@
 import Link from 'next/link'
-import { 
-  Heart, 
-  Brain, 
-  Mail, 
-  Phone, 
-  MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin
-} from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -45,10 +34,10 @@ export function Footer() {
   }
 
   const socialLinks = [
-    { name: 'Facebook', href: '#', icon: Facebook },
-    { name: 'Twitter', href: '#', icon: Twitter },
-    { name: 'Instagram', href: '#', icon: Instagram },
-    { name: 'LinkedIn', href: '#', icon: Linkedin },
+    { name: 'Facebook', href: '#', icon: '📘' },
+    { name: 'Twitter', href: '#', icon: '🐦' },
+    { name: 'Instagram', href: '#', icon: '📷' },
+    { name: 'LinkedIn', href: '#', icon: '💼' },
   ]
 
   return (
@@ -61,7 +50,7 @@ export function Footer() {
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center space-x-2 mb-4">
                 <div className="flex items-center justify-center w-10 h-10 bg-gradient-primary rounded-lg">
-                  <Brain className="w-6 h-6 text-white" />
+                  <span className="text-2xl">🧠</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Neuroljus Neurohus</h3>
@@ -79,15 +68,15 @@ export function Footer() {
               {/* Contact info */}
               <div className="space-y-2 text-sm text-neutral-300">
                 <div className="flex items-center space-x-2">
-                  <Mail className="w-4 h-4" />
+                  <span>📧</span>
                   <span>info@neuroljus.se</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4" />
+                  <span>📞</span>
                   <span>08-123 456 78</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <MapPin className="w-4 h-4" />
+                  <span>📍</span>
                   <span>Stockholm, Sverige</span>
                 </div>
               </div>
@@ -124,19 +113,16 @@ export function Footer() {
 
             {/* Social links */}
             <div className="flex items-center space-x-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    className="text-neutral-400 hover:text-white transition-colors"
-                    aria-label={social.name}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </Link>
-                )
-              })}
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  className="text-neutral-400 hover:text-white transition-colors text-2xl"
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </Link>
+              ))}
             </div>
 
             {/* Additional links */}
@@ -158,7 +144,7 @@ export function Footer() {
         <div className="border-t border-neutral-800 py-6">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-2">
-              <Heart className="w-5 h-5 text-red-500" />
+              <span className="text-2xl">❤️</span>
               <span className="text-lg font-semibold">Vår mission</span>
             </div>
             <p className="text-neutral-300 max-w-3xl mx-auto">
